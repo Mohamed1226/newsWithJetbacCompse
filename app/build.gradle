@@ -73,6 +73,7 @@ dependencies {
 
     //Compose Navigation
     def nav_version = "2.6.0"
+    //noinspection GradleDependency
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
     //Dagger Hilt
