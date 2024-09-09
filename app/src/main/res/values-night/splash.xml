@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Starting.theme" parent="Theme.SplashScreen">
-    <item name="windowSplashScreenBackground">#FFFF</item>
+        <item name="windowSplashScreenBackground">#1C1E21</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
         <item name="postSplashScreenTheme">@style/Starting.theme</item>
-        
+
     </style>
 </resources>
