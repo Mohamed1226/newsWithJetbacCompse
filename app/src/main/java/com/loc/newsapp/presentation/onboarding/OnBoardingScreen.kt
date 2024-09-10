@@ -21,17 +21,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.loc.newsapp.presentation.common.AppButton
 import com.loc.newsapp.presentation.onboarding.component.ImageWithTitles
 import com.loc.newsapp.presentation.onboarding.component.ImageWithTitlesPreview
 import com.loc.newsapp.presentation.onboarding.components.PagerIndicator
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen( viewModel: OnboardingVIewModel = hiltViewModel()) {
 
-
+viewModel.readUserSetting()
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement  = Arrangement.SpaceBetween) {
         val pageState: PagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
         val scope = rememberCoroutineScope()
@@ -66,8 +68,8 @@ fun OnBoardingScreen() {
                         }
                     })
                 AppButton(title = buttonState.value[1], onClicked = {
-                    if (pageState.currentPage == pages.size) {
-                        /// navigate to home screen
+                    if (pageState.currentPage == pages.size - 1) {
+                        viewModel.saveEntrySetting()
                     } else {
                         scope.launch {
                             pageState.animateScrollToPage(page = pageState.currentPage + 1)
