@@ -11,17 +11,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppButton(modifier: Modifier = Modifier, title: String, onClicked: () -> Unit) {
+fun AppButton(
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.primary,
+    title: String,
+    onClicked: () -> Unit
+) {
     Button(
         onClicked,
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primary,
+            containerColor = color,
             contentColor = Color.White
         ),
         shape = RoundedCornerShape(size = 16.dp)
-    ) { }
+    ) {    Text(title)}
 
-    Text(title)
+
 
 }
