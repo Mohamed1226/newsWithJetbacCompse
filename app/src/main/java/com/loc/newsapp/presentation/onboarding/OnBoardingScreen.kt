@@ -33,7 +33,6 @@ import kotlinx.coroutines.launch
 @Composable
 fun OnBoardingScreen( viewModel: OnboardingVIewModel = hiltViewModel()) {
 
-viewModel.readUserSetting()
     Column(modifier = Modifier.fillMaxSize(), verticalArrangement  = Arrangement.SpaceBetween) {
         val pageState: PagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
         val scope = rememberCoroutineScope()

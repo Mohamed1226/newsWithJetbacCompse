@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 class GetAppEntryUseCases(private val localUserSetting: AppManger) {
 
-    suspend fun readUserSetting(): Flow<Boolean> {
+     fun invoke(): Flow<Boolean> {
         return localUserSetting.readUserSetting()
     }
 }

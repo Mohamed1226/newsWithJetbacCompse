@@ -22,13 +22,7 @@ class OnboardingVIewModel @Inject constructor(
     }
 
 
-    fun readUserSetting() {
-        viewModelScope.launch {
-            appEntryUseCases.getUserSettingUseCases.readUserSetting().collect{
-                Log.d("TEST",it.toString())
-            }
-        }
-    }
+
 
 
 }
