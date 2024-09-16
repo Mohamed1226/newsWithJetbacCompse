@@ -6,10 +6,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.loc.newsapp.presentation.home.HomeScreen
+import com.loc.newsapp.presentation.home.NewsViewModel
 import com.loc.newsapp.presentation.onboarding.OnBoardingScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -36,9 +40,11 @@ fun NavGraph(
             startDestination = Route.HomeScreen.route
         ) {
             composable(route = Route.HomeScreen.route) {
-                Scaffold {
-                    Text("dfsdsf")
-                }
+
+                val viewModel : NewsViewModel = hiltViewModel()
+                val article =viewModel.news.collectAsLazyPagingItems()
+
+                HomeScreen(articles = article, navigate = {})
             }
             composable(route = Route.SearchScreen.route) {
 

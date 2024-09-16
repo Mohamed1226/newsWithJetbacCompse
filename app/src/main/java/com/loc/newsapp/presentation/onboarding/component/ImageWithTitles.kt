@@ -1,5 +1,7 @@
 package com.loc.newsapp.presentation.onboarding.component
 
+import Dimens.largePadding
+import Dimens.meduimPadding
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -19,8 +21,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.loc.newsapp.R
 import com.loc.newsapp.presentation.onboarding.Page
-import com.loc.newsapp.presentation.common.consts.Dimens.largePadding
-import com.loc.newsapp.presentation.common.consts.Dimens.meduimPadding
 import com.loc.newsapp.presentation.onboarding.pages
 import com.loc.newsapp.ui.theme.NewsAppTheme
 
